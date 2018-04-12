@@ -1,0 +1,84 @@
+<!-- <p>
+  todo works!
+</p> -->
+<div class="container">
+    <form class="form-horizontal" (submit)="insertList()" method="post" #playlistForm="ngForm">
+  <fieldset>
+    <legend>Add New List</legend>
+
+    <div class="form-group">
+      <label for="inputItem" class="col-lg-2 control-label">list Item Name</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" [(ngModel)]="listName" name="listName" placeholder="Name">
+      </div>
+    </div>
+
+    
+    <!-- <div class="checkbox">
+        <label>
+        <input type="checkbox"> Checkbox
+        </label>
+    </div> -->
+
+    
+    <div class="form-group">
+      <label for="textArea" class="col-lg-2 control-label">Description</label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="textArea" [(ngModel)]="listDes" name="listDes" placeholder="Add some description"></textarea>
+        <!-- <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span> -->
+      </div>
+    </div>
+       
+    
+    
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+
+    <!-- <ul>
+        <li>aniket</li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul> -->
+    <table class="table table-striped table-hover ">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            
+            <tbody >
+              
+            <tr *ngFor="let list of allItemList,let i = index">
+                <td>{{i+1}}</td>
+                <td>{{list.name}}</td>
+                <td>{{list.description}}</td>
+                <td>
+                    <a class="delete btn btn-sm btn-danger" (click)="onDeleteClick(id)">Delete</a>
+                </td>
+              </tr>
+            
+              <!-- 
+              <tr>
+                <td>2</td>
+                <td>Column content</td>
+                <td>Column content</td>
+                <td>Column content</td>
+              </tr>
+             -->
+            
+            </tbody>
+          </table> 
+
+  </fieldset>
+</form>
+
+
+</div>
